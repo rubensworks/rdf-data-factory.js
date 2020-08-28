@@ -1,7 +1,7 @@
 import * as RDF from 'rdf-js';
 
 /**
- * A variable name.
+ * A term that represents a variable.
  */
 export class Variable implements RDF.Variable {
   public readonly termType = 'Variable';

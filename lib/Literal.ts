@@ -2,7 +2,7 @@ import * as RDF from 'rdf-js';
 import { NamedNode } from './NamedNode';
 
 /**
- * An RDF literal, containing a string with an optional language tag and/or datatype.
+ * A term that represents an RDF literal, containing a string with an optional language tag or datatype.
  */
 export class Literal implements RDF.Literal {
   public readonly termType = 'Literal';

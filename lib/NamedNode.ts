@@ -1,7 +1,7 @@
 import * as RDF from 'rdf-js';
 
 /**
- * Contains an IRI.
+ * A term that contains an IRI.
  */
 export class NamedNode<Iri extends string = string> implements RDF.NamedNode<Iri> {
   public readonly termType = 'NamedNode';

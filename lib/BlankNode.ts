@@ -1,7 +1,7 @@
 import * as RDF from 'rdf-js';
 
 /**
- * Contains an RDF blank node.
+ * A term that represents an RDF blank node with a label.
  */
 export class BlankNode implements RDF.BlankNode {
   public readonly termType = 'BlankNode';

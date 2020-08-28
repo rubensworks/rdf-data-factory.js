@@ -1,7 +1,7 @@
 import * as RDF from 'rdf-js';
 
 /**
- * An instance of DefaultGraph represents the default graph.
+ * A singleton term instance that represents the default graph.
  * It's only allowed to assign a DefaultGraph to the .graph property of a Quad.
  */
 export class DefaultGraph implements RDF.DefaultGraph {
