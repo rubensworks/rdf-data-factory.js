@@ -36,6 +36,7 @@ module.exports = {
     },
     rules: {
         // Default
+        'no-implicit-coercion': 'off',
         'class-methods-use-this': 'off', // Conflicts with functions from interfaces that sometimes don't require `this`
         'comma-dangle': ['error', 'always-multiline'],
         'dot-location': ['error', 'property'],
