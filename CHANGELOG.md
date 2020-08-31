@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.0.1"></a>
+## [v1.0.1](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.0.0...v1.0.1) - 2020-08-31
+
+### Fixed
+* [Fix Quad.equals not checking terms](https://github.com/rubensworks/rdf-data-factory.js/commit/b295f8ecaeb4a831f15cef1c351852b05701a1b3)
+
 <a name="v1.0.0"></a>
 ## [v1.0.0] - 2020-08-28
 
