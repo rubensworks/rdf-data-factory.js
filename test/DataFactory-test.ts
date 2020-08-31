@@ -245,6 +245,34 @@ describe('DataFactory', () => {
         factory.namedNode('ex:o'),
         factory.namedNode('ex:g'),
       ))).toEqual(true);
+
+      expect(term.equals(factory.quad(
+        factory.namedNode('ex:s-'),
+        factory.namedNode('ex:p'),
+        factory.namedNode('ex:o'),
+        factory.namedNode('ex:g'),
+      ))).toEqual(false);
+
+      expect(term.equals(factory.quad(
+        factory.namedNode('ex:s'),
+        factory.namedNode('ex:p-'),
+        factory.namedNode('ex:o'),
+        factory.namedNode('ex:g'),
+      ))).toEqual(false);
+
+      expect(term.equals(factory.quad(
+        factory.namedNode('ex:s'),
+        factory.namedNode('ex:p'),
+        factory.namedNode('ex:o-'),
+        factory.namedNode('ex:g'),
+      ))).toEqual(false);
+
+      expect(term.equals(factory.quad(
+        factory.namedNode('ex:s'),
+        factory.namedNode('ex:p'),
+        factory.namedNode('ex:o'),
+        factory.namedNode('ex:g-'),
+      ))).toEqual(false);
     });
 
     it('should handle equals for a nested quad', () => {

@@ -25,6 +25,10 @@ export class Quad implements RDF.BaseQuad {
   }
 
   public equals(other: RDF.Term | null | undefined): boolean {
-    return !!other && other.termType === 'Quad';
+    return !!other && other.termType === 'Quad' &&
+      this.subject.equals(other.subject) &&
+      this.predicate.equals(other.predicate) &&
+      this.object.equals(other.object) &&
+      this.graph.equals(other.graph);
   }
 }
