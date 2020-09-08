@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.0.2"></a>
+## [v1.0.2](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.0.1...v1.0.2) - 2020-09-08
+
+### Fixed
+* [Make Quad.equals backwards-compatible with old factories, Closes #2](https://github.com/rubensworks/rdf-data-factory.js/commit/d4e415d3fc7b340709624466129e7b28cbb30548)
+
 <a name="v1.0.1"></a>
 ## [v1.0.1](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.0.0...v1.0.1) - 2020-08-31
 
