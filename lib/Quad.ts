@@ -25,7 +25,8 @@ export class Quad implements RDF.BaseQuad {
   }
 
   public equals(other: RDF.Term | null | undefined): boolean {
-    return !!other && other.termType === 'Quad' &&
+    // `|| !other.termType` is for backwards-compatibility with old factories without RDF* support.
+    return !!other && (other.termType === 'Quad' || !other.termType) &&
       this.subject.equals(other.subject) &&
       this.predicate.equals(other.predicate) &&
       this.object.equals(other.object) &&

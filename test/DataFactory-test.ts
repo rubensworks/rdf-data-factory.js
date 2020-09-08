@@ -302,6 +302,24 @@ describe('DataFactory', () => {
         factory.namedNode('ex:g'),
       ))).toEqual(true);
     });
+
+    it('should handle equals for a quad without termType', () => {
+      const term = factory.quad(
+        factory.namedNode('ex:s'),
+        factory.namedNode('ex:p'),
+        factory.namedNode('ex:o'),
+        factory.namedNode('ex:g'),
+      );
+      const other = factory.quad(
+        factory.namedNode('ex:s'),
+        factory.namedNode('ex:p'),
+        factory.namedNode('ex:o'),
+        factory.namedNode('ex:g'),
+      );
+      delete (<any> other).termType;
+      delete (<any> other).value;
+      expect(term.equals(other)).toEqual(true);
+    });
   });
 
   describe('fromTerm', () => {
