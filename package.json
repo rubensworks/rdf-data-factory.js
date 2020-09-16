@@ -1,6 +1,6 @@
 {
   "name": "rdf-data-factory",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A TypeScript/JavaScript implementation of the RDF/JS data factory.",
   "keywords": [
     "rdf",
