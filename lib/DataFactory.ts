@@ -29,7 +29,7 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
    * @see BlankNode
    */
   public blankNode(value?: string): BlankNode {
-    return new BlankNode(value || `df-${this.blankNodeCounter++}`);
+    return new BlankNode(value || `df_${this.blankNodeCounter++}`);
   }
 
   /**

@@ -39,17 +39,17 @@ describe('DataFactory', () => {
     });
 
     it('should generate a blank node label without a given label', () => {
-      expect(factory.blankNode().value).toEqual('df-0');
-      expect(factory.blankNode().value).toEqual('df-1');
-      expect(factory.blankNode().value).toEqual('df-2');
+      expect(factory.blankNode().value).toEqual('df_0');
+      expect(factory.blankNode().value).toEqual('df_1');
+      expect(factory.blankNode().value).toEqual('df_2');
     });
 
     it('should generate a blank node label without a given label and consider resets on the factory', () => {
-      expect(factory.blankNode().value).toEqual('df-0');
-      expect(factory.blankNode().value).toEqual('df-1');
+      expect(factory.blankNode().value).toEqual('df_0');
+      expect(factory.blankNode().value).toEqual('df_1');
       factory.resetBlankNodeCounter();
-      expect(factory.blankNode().value).toEqual('df-0');
-      expect(factory.blankNode().value).toEqual('df-1');
+      expect(factory.blankNode().value).toEqual('df_0');
+      expect(factory.blankNode().value).toEqual('df_1');
     });
 
     it('should handle equals', () => {
@@ -111,7 +111,7 @@ describe('DataFactory', () => {
         .equals(factory.literal('a', factory.namedNode('ex:dt')))).toEqual(false);
       expect(factory.literal('a', 'en-us')
         .equals(factory.literal('a',
-          factory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#langString')))).toEqual(false);
+          factory.namedNode('http://www.w3.org/1999/02/22-rdf_syntax-ns#langString')))).toEqual(false);
 
       expect(factory.literal('a', factory.namedNode('ex:dt'))
         .equals(factory.literal('a'))).toEqual(false);
