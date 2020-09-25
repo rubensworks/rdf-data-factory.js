@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import 'jest-rdf';
-import * as RDF from 'rdf-js';
+import type * as RDF from 'rdf-js';
 import { DataFactory } from '../lib/DataFactory';
 
 describe('DataFactory', () => {
@@ -25,7 +24,7 @@ describe('DataFactory', () => {
     it('should handle equals', () => {
       const term = factory.namedNode('ex:a');
       expect(term.equals(null)).toEqual(false);
-      expect(term.equals(undefined)).toEqual(false);
+      expect(term.equals()).toEqual(false);
       expect(term.equals(factory.blankNode())).toEqual(false);
       expect(term.equals(factory.namedNode('ex:a'))).toEqual(true);
     });
@@ -55,7 +54,7 @@ describe('DataFactory', () => {
     it('should handle equals', () => {
       const term = factory.blankNode('a');
       expect(term.equals(null)).toEqual(false);
-      expect(term.equals(undefined)).toEqual(false);
+      expect(term.equals()).toEqual(false);
       expect(term.equals(factory.namedNode('a'))).toEqual(false);
       expect(term.equals(factory.blankNode('a'))).toEqual(true);
     });
@@ -89,7 +88,7 @@ describe('DataFactory', () => {
     it('should handle equals', () => {
       const term = factory.literal('a');
       expect(term.equals(null)).toEqual(false);
-      expect(term.equals(undefined)).toEqual(false);
+      expect(term.equals()).toEqual(false);
       expect(term.equals(factory.blankNode())).toEqual(false);
       expect(term.equals(factory.literal('a'))).toEqual(true);
 
@@ -133,7 +132,7 @@ describe('DataFactory', () => {
     it('should handle equals', () => {
       const term = factory.variable('a');
       expect(term.equals(null)).toEqual(false);
-      expect(term.equals(undefined)).toEqual(false);
+      expect(term.equals()).toEqual(false);
       expect(term.equals(factory.blankNode())).toEqual(false);
       expect(term.equals(factory.variable('a'))).toEqual(true);
     });
@@ -153,7 +152,7 @@ describe('DataFactory', () => {
     it('should handle equals', () => {
       const term = factory.defaultGraph();
       expect(term.equals(null)).toEqual(false);
-      expect(term.equals(undefined)).toEqual(false);
+      expect(term.equals()).toEqual(false);
       expect(term.equals(factory.blankNode())).toEqual(false);
       expect(term.equals(factory.defaultGraph())).toEqual(true);
     });
@@ -237,7 +236,7 @@ describe('DataFactory', () => {
         factory.namedNode('ex:g'),
       );
       expect(term.equals(null)).toEqual(false);
-      expect(term.equals(undefined)).toEqual(false);
+      expect(term.equals()).toEqual(false);
       expect(term.equals(factory.blankNode())).toEqual(false);
       expect(term.equals(factory.quad(
         factory.namedNode('ex:s'),
@@ -288,7 +287,7 @@ describe('DataFactory', () => {
         factory.namedNode('ex:g'),
       );
       expect(term.equals(null)).toEqual(false);
-      expect(term.equals(undefined)).toEqual(false);
+      expect(term.equals()).toEqual(false);
       expect(term.equals(factory.blankNode())).toEqual(false);
       expect(term.equals(factory.quad(
         factory.namedNode('ex:s'),

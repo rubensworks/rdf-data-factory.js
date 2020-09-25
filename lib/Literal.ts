@@ -1,4 +1,4 @@
-import * as RDF from 'rdf-js';
+import type * as RDF from 'rdf-js';
 import { NamedNode } from './NamedNode';
 
 /**
@@ -30,7 +30,7 @@ export class Literal implements RDF.Literal {
     }
   }
 
-  public equals(other: RDF.Term | null | undefined): boolean {
+  public equals(other?: RDF.Term | null): boolean {
     return !!other && other.termType === 'Literal' && other.value === this.value &&
       other.language === this.language && other.datatype.equals(this.datatype);
   }

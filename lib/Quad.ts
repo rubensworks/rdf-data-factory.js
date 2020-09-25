@@ -1,4 +1,4 @@
-import * as RDF from 'rdf-js';
+import type * as RDF from 'rdf-js';
 
 /**
  * An instance of DefaultGraph represents the default graph.
@@ -24,7 +24,7 @@ export class Quad implements RDF.BaseQuad {
     this.graph = graph;
   }
 
-  public equals(other: RDF.Term | null | undefined): boolean {
+  public equals(other?: RDF.Term | null): boolean {
     // `|| !other.termType` is for backwards-compatibility with old factories without RDF* support.
     return !!other && (other.termType === 'Quad' || !other.termType) &&
       this.subject.equals(other.subject) &&

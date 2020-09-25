@@ -1,4 +1,4 @@
-import * as RDF from 'rdf-js';
+import type * as RDF from 'rdf-js';
 import { BlankNode } from './BlankNode';
 import { DefaultGraph } from './DefaultGraph';
 import { Literal } from './Literal';
@@ -133,7 +133,7 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
   /**
    * Reset the internal blank node counter.
    */
-  public resetBlankNodeCounter() {
+  public resetBlankNodeCounter(): void {
     this.blankNodeCounter = 0;
   }
 }

@@ -1,4 +1,4 @@
-import * as RDF from 'rdf-js';
+import type * as RDF from 'rdf-js';
 
 /**
  * A singleton term instance that represents the default graph.
@@ -14,7 +14,7 @@ export class DefaultGraph implements RDF.DefaultGraph {
     // Private constructor
   }
 
-  public equals(other: RDF.Term | null | undefined): boolean {
+  public equals(other?: RDF.Term | null): boolean {
     return !!other && other.termType === 'DefaultGraph';
   }
 }
