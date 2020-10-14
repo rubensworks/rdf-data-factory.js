@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.0.4"></a>
+## [v1.0.4](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.0.3...v1.0.4) - 2020-10-14
+
+### Fixed
+* [Fix blank node clashes across multiple factory instances](https://github.com/rubensworks/rdf-data-factory.js/commit/ae8467f1cf14da78e643fdb5c31391d4d7751aa3)
+
 <a name="v1.0.3"></a>
 ## [v1.0.3](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.0.2...v1.0.3) - 2020-09-16
 
