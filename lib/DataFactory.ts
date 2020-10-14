@@ -6,11 +6,19 @@ import { NamedNode } from './NamedNode';
 import { Quad } from './Quad';
 import { Variable } from './Variable';
 
+let dataFactoryCounter = 0;
+
 /**
  * A factory for instantiating RDF terms and quads.
  */
 export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataFactory<Q> {
+  private readonly blankNodePrefix: string;
   private blankNodeCounter = 0;
+
+  public constructor(options?: IDataFactoryOptions) {
+    options = options || {};
+    this.blankNodePrefix = options.blankNodePrefix || `df_${dataFactoryCounter++}_`;
+  }
 
   /**
    * @param value The IRI for the named node.
@@ -29,7 +37,7 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
    * @see BlankNode
    */
   public blankNode(value?: string): BlankNode {
-    return new BlankNode(value || `df_${this.blankNodeCounter++}`);
+    return new BlankNode(value || `${this.blankNodePrefix}${this.blankNodeCounter++}`);
   }
 
   /**
@@ -136,4 +144,8 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
   public resetBlankNodeCounter(): void {
     this.blankNodeCounter = 0;
   }
+}
+
+export interface IDataFactoryOptions {
+  blankNodePrefix?: string;
 }

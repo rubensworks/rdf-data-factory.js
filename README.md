@@ -40,6 +40,13 @@ import * as RDF from 'rdf-js';
 const factory: RDF.DataFactory = new DataFactory();
 ```
 
+You can pass the following option to define a blank node prefix:
+```typescript
+const factory: RDF.DataFactory = new DataFactory({ blankNodePrefix: 'bnode_' });
+```
+If no `blankNodePrefix` is passed, it will generate a unique prefix of the form `df_[0-9]+_`,
+which ensures there will be no blank nodes clashes when instantiating multiple factories.
+
 ### Creating named nodes
 
 ```typescript
