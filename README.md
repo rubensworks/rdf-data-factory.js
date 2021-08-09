@@ -1,6 +1,6 @@
 # RDF Data Factory
 
-[![Build Status](https://travis-ci.org/rubensworks/rdf-data-factory.js.svg?branch=master)](https://travis-ci.org/rubensworks/rdf-data-factory.js)
+[![Build status](https://github.com/rubensworks/rdf-data-factory.js/workflows/CI/badge.svg)](https://github.com/rubensworks/rdf-data-factory.js/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/github/rubensworks/rdf-data-factory.js/badge.svg?branch=master)](https://coveralls.io/github/rubensworks/rdf-data-factory.js?branch=master)
 [![npm version](https://badge.fury.io/js/rdf-data-factory.svg)](https://www.npmjs.com/package/rdf-data-factory)
 
