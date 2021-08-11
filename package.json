@@ -26,7 +26,7 @@
     "index.js"
   ],
   "dependencies": {
-    "@types/rdf-js": "*"
+    "@rdfjs/types": "*"
   },
   "pre-commit": [
     "build",
@@ -36,7 +36,6 @@
   "devDependencies": {
     "@rubensworks/eslint-config": "^1.0.0",
     "@types/jest": "^26.0.0",
-    "@types/rdf-js": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.1.1",
     "coveralls": "^3.0.0",
@@ -85,5 +84,8 @@
     "validate": "npm ls",
     "prepare": "npm run build",
     "version": "manual-git-changelog onversion"
+  },
+  "resolutions": {
+    "@types/rdf-js": "4.0.1"
   }
 }

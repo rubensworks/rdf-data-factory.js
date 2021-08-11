@@ -1,5 +1,5 @@
 import 'jest-rdf';
-import type * as RDF from 'rdf-js';
+import type * as RDF from '@rdfjs/types';
 import { DataFactory } from '../lib/DataFactory';
 
 describe('DataFactory', () => {

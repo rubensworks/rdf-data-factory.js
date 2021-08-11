@@ -586,6 +586,13 @@
   dependencies:
     "@types/rdf-js" "^2.0.1"
 
+"@rdfjs/types@*":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rdfjs/types/-/types-1.0.1.tgz#92908a13bc88c71b349b332f3db19178282d6f4e"
+  integrity sha512-YxVkH0XrCNG3MWeZxfg596GFe+oorTVusmNxRP6ZHTsGczZ8AGvG3UchRNkg3Fy4MyysI7vBAA5YZbESL+VmHQ==
+  dependencies:
+    "@types/node" "*"
+
 "@rubensworks/eslint-config@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@rubensworks/eslint-config/-/eslint-config-1.0.0.tgz#dcf6798457a2546f7009dcf71cd25a9c4d910e5b"
@@ -715,17 +722,10 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.1.0.tgz#5f96562c1075ee715a5b138f0b7f591c1f40f6b8"
   integrity sha512-hiYA88aHiEIgDmeKlsyVsuQdcFn3Z2VuFd/Xm/HCnGnPD8UFU5BM128uzzRVVGEzKDKYUrRsRH9S2o+NUy/3IA==
 
-"@types/rdf-js@^2.0.1":
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/@types/rdf-js/-/rdf-js-2.0.12.tgz#d305a0b6fd105e33f58d5c1b3de33ff8edcb3210"
-  integrity sha512-NBzHFHp2vHOJkPlSqzsOrkEsD9grKn+PdFjZieIw59pc0FlRG6WEQAjQZvHzFxJlYzC6ZDCFyTA1wBvUnnzUQw==
-  dependencies:
-    "@types/node" "*"
-
-"@types/rdf-js@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/rdf-js/-/rdf-js-4.0.0.tgz#96f7314b09b77ecd16fca7f358db90db8ac86d1b"
-  integrity sha512-2uaR7ks0380MqzUWGOPOOk9yZIr/6MOaCcaj3ntKgd2PqNocgi8j5kSHIJTDe+5ABtTHqKMSE0v0UqrsT8ibgQ==
+"@types/rdf-js@4.0.1", "@types/rdf-js@^2.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/rdf-js/-/rdf-js-4.0.1.tgz#bf89dfc080e292f06273f059b3a82e5e69fec4c0"
+  integrity sha512-S+28+3RoFI+3arls7dS813gYnhb2HiyLX+gs00rgIvCzHU93DaYajhx4tyT+XEO8SjtzZw90OF4OVdYXBwbvkQ==
   dependencies:
     "@types/node" "*"
 
