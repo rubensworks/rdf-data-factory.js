@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v1.1.0"></a>
+## [v1.1.0](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.0.4...v1.1.0) - 2021-08-11
+
+### Changed
+* [Migrate to @rdfjs/types, Closes #4](https://github.com/rubensworks/rdf-data-factory.js/commit/5da60e2e649c4c53926398d714075fb356bed4db)
+
 <a name="v1.0.4"></a>
 ## [v1.0.4](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.0.3...v1.0.4) - 2020-10-14
 
