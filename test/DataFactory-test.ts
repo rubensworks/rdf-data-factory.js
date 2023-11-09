@@ -75,6 +75,7 @@ describe('DataFactory', () => {
       expect(literal.value).toEqual('abc');
       expect(literal.language).toEqual('');
       expect(literal.datatype).toEqual(factory.namedNode('http://www.w3.org/2001/XMLSchema#string'));
+      expect(literal.direction).toEqual('');
     });
 
     it('should produce a valid language tagged literal', () => {
@@ -83,6 +84,34 @@ describe('DataFactory', () => {
       expect(literal.value).toEqual('abc');
       expect(literal.language).toEqual('en-us');
       expect(literal.datatype).toEqual(factory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#langString'));
+      expect(literal.direction).toEqual('');
+    });
+
+    it('should produce a valid language tagged literal in extended form', () => {
+      const literal: RDF.Literal = factory.literal('abc', { language: 'en-us' });
+      expect(literal.termType).toEqual('Literal');
+      expect(literal.value).toEqual('abc');
+      expect(literal.language).toEqual('en-us');
+      expect(literal.datatype).toEqual(factory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#langString'));
+      expect(literal.direction).toEqual('');
+    });
+
+    it('should produce a valid language tagged literal with ltr direction', () => {
+      const literal: RDF.Literal = factory.literal('abc', { language: 'en-us', direction: 'ltr' });
+      expect(literal.termType).toEqual('Literal');
+      expect(literal.value).toEqual('abc');
+      expect(literal.language).toEqual('en-us');
+      expect(literal.datatype).toEqual(factory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#dirLangString'));
+      expect(literal.direction).toEqual('ltr');
+    });
+
+    it('should produce a valid language tagged literal with rtl direction', () => {
+      const literal: RDF.Literal = factory.literal('abc', { language: 'en-us', direction: 'rtl' });
+      expect(literal.termType).toEqual('Literal');
+      expect(literal.value).toEqual('abc');
+      expect(literal.language).toEqual('en-us');
+      expect(literal.datatype).toEqual(factory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#dirLangString'));
+      expect(literal.direction).toEqual('rtl');
     });
 
     it('should produce a valid datatyped literal', () => {
@@ -91,6 +120,7 @@ describe('DataFactory', () => {
       expect(literal.value).toEqual('abc');
       expect(literal.language).toEqual('');
       expect(literal.datatype).toEqual(factory.namedNode('ex:dt'));
+      expect(literal.direction).toEqual('');
     });
 
     it('should handle equals', () => {
@@ -104,6 +134,11 @@ describe('DataFactory', () => {
         .equals(factory.literal('a', 'en-us'))).toEqual(true);
       expect(factory.literal('a', factory.namedNode('ex:dt'))
         .equals(factory.literal('a', factory.namedNode('ex:dt')))).toEqual(true);
+      expect(factory.literal('a', { language: 'en-us' })
+        .equals(factory.literal('a', 'en-us'))).toEqual(true);
+
+      expect(factory.literal('a', { language: 'en-us', direction: 'ltr' })
+        .equals(factory.literal('a', { language: 'en-us', direction: 'ltr' }))).toEqual(true);
 
       expect(factory.literal('a')
         .equals(factory.literal('a', 'en-us'))).toEqual(false);
@@ -111,6 +146,13 @@ describe('DataFactory', () => {
         .equals(factory.literal('a', factory.namedNode('ex:dt')))).toEqual(false);
       expect(factory.literal('a')
         .equals(factory.literal('a', factory.namedNode('http://www.w3.org/2001/XMLSchema#string')))).toEqual(true);
+
+      expect(factory.literal('a', { language: 'en-us', direction: 'ltr' })
+        .equals(factory.literal('a', { language: 'en-us', direction: 'rtl' }))).toEqual(false);
+      expect(factory.literal('a', { language: 'en-us' })
+        .equals(factory.literal('a', { language: 'en-us', direction: 'rtl' }))).toEqual(false);
+      expect(factory.literal('a', 'en-us')
+        .equals(factory.literal('a', { language: 'en-us', direction: 'rtl' }))).toEqual(false);
 
       expect(factory.literal('a', 'en-us')
         .equals(factory.literal('a'))).toEqual(false);

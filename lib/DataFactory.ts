@@ -42,15 +42,18 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
 
   /**
    * @param value              The literal value.
-   * @param languageOrDatatype The optional language or datatype.
+   * @param languageOrDatatype The optional language, datatype, or directional language.
    *                           If `languageOrDatatype` is a NamedNode,
    *                           then it is used for the value of `NamedNode.datatype`.
-   *                           Otherwise `languageOrDatatype` is used for the value
+   *                           If `languageOrDatatype` is a NamedNode, it is used for the value
    *                           of `NamedNode.language`.
+   *                           Otherwise, it is used as a directional language,
+   *                           from which the language is set to `languageOrDatatype.language`
+   *                           and the direction to `languageOrDatatype.direction`.
    * @return A new instance of Literal.
    * @see Literal
    */
-  public literal(value: string, languageOrDatatype?: string | RDF.NamedNode): Literal {
+  public literal(value: string, languageOrDatatype?: string | RDF.NamedNode | RDF.DirectionalLanguage): Literal {
     return new Literal(value, languageOrDatatype);
   }
 

@@ -12,7 +12,7 @@ Concretely, it provides an implementation of the following interfaces:
 * [`DataFactory`](http://rdf.js.org/data-model-spec/#datafactory-interface): A factory for instantiating RDF terms and quads.
 * [`NamedNode`](http://rdf.js.org/data-model-spec/#namednode-interface): A term that contains an IRI.
 * [`BlankNode`](http://rdf.js.org/data-model-spec/#blanknode-interface): A term that represents an RDF blank node with a label.
-* [`Literal`](http://rdf.js.org/data-model-spec/#literal-interface): A term that represents an RDF literal, containing a string with an optional language tag or datatype.
+* [`Literal`](http://rdf.js.org/data-model-spec/#literal-interface): A term that represents an RDF literal, containing a string with an optional language tag and optional direction or datatype.
 * [`Variable`](http://rdf.js.org/data-model-spec/#variable-interface): A term that represents a variable.
 * [`DefaultGraph`](http://rdf.js.org/data-model-spec/#defaultgraph-interface): A singleton term instance that represents the default graph.
 
@@ -87,6 +87,7 @@ const term: RDF.Literal = factory.literal('abc');
 console.log(term.value); // 'abc'
 console.log(term.termType); // 'Literal'
 console.log(term.language); // ''
+console.log(term.direction); // ''
 console.log(term.datatype); // namedNode('http://www.w3.org/2001/XMLSchema#string')
 console.log(term.equals(term)); // true
 ```
@@ -97,7 +98,19 @@ const term: RDF.Literal = factory.literal('abc', 'en-us');
 console.log(term.value); // 'abc'
 console.log(term.termType); // 'Literal'
 console.log(term.language); // 'en-us'
+console.log(term.direction); // ''
 console.log(term.datatype); // namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#langString')
+console.log(term.equals(term)); // true
+```
+
+Directional languaged tagged string literal:
+```typescript
+const term: RDF.Literal = factory.literal('abc', { language: 'en-us', direction: 'ltr' });
+console.log(term.value); // 'abc'
+console.log(term.termType); // 'Literal'
+console.log(term.language); // 'en-us'
+console.log(term.direction); // 'ltr'
+console.log(term.datatype); // namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#dirLangString')
 console.log(term.equals(term)); // true
 ```
 
@@ -107,6 +120,7 @@ const term: RDF.Literal = factory.literal('1.2', factory.namedNode('http://www.w
 console.log(term.value); // 'abc'
 console.log(term.termType); // 'Literal'
 console.log(term.language); // ''
+console.log(term.direction); // ''
 console.log(term.datatype); // namedNode('http://www.w3.org/2001/XMLSchema#double')
 console.log(term.equals(term)); // true
 ```
