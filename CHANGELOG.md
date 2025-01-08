@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v2.0.1"></a>
+## [v2.0.1](https://github.com/rubensworks/rdf-data-factory.js/compare/v2.0.0...v2.0.1) - 2025-01-08
+
+A no-op release to make sure this version is shown after v1.1.3 on npm.
+
 <a name="v2.0.0"></a>
 ## [v2.0.0](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.1.2...v2.0.0) - 2025-01-08
 
@@ -10,6 +15,12 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 * [Add optional direction for literals](https://github.com/rubensworks/rdf-data-factory.js/commit/332f7393a2ad3078d34eed79e87c4995d5fd1eb3)
+
+<a name="v1.1.3"></a>
+## [v1.1.3](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.1.2...v1.1.3) - 2023-06-20
+
+### Changed
+* [Narrow @rdfjs/types to v1 range](https://github.com/rubensworks/rdf-data-factory.js/commit/85ec7a553ef4ab880cd6c01aa99dcbe4a28e4b95)
 
 <a name="v1.1.2"></a>
 ## [v1.1.2](https://github.com/rubensworks/rdf-data-factory.js/compare/v1.1.1...v1.1.2) - 2023-06-20
