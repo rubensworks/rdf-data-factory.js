@@ -57,7 +57,7 @@
     "manual-git-changelog": "^1.0.0",
     "pre-commit": "^1.2.2",
     "ts-jest": "^27.0.0",
-    "typescript": "^4.0.2"
+    "typescript": "^5.7.2"
   },
   "jest": {
     "transform": {
@@ -92,6 +92,7 @@
     "version": "manual-git-changelog onversion"
   },
   "resolutions": {
-    "@types/rdf-js": "4.0.1"
-  }
+    "@rdfjs/types": "2.0.0"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

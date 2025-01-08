@@ -93,13 +93,7 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
    * @param original An RDF term.
    * @return A deep copy of the given term.
    */
-  public fromTerm<T extends RDF.Term>(original: T):
-  (T extends RDF.NamedNode ? NamedNode
-    : (T extends RDF.BlankNode ? BlankNode
-      : (T extends RDF.Literal ? Literal
-        : (T extends RDF.Variable ? Variable
-          : (T extends RDF.DefaultGraph ? DefaultGraph
-            : (T extends Q ? Q : unknown)))))) {
+  public fromTerm<T extends RDF.Term>(original: T): T {
     // TODO: remove nasty any casts when this TS bug has been fixed:
     //  https://github.com/microsoft/TypeScript/issues/26933
     switch (original.termType) {
@@ -108,11 +102,11 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
       case 'BlankNode':
         return <any> this.blankNode(original.value);
       case 'Literal':
-        if ((<RDF.Literal> original).language) {
-          return <any> this.literal(original.value, (<RDF.Literal>original).language);
+        if (original.language) {
+          return <any> this.literal(original.value, original.language);
         }
-        if (!(<RDF.Literal> original).datatype.equals(Literal.XSD_STRING)) {
-          return <any> this.literal(original.value, this.fromTerm((<RDF.Literal> original).datatype));
+        if (!original.datatype.equals(Literal.XSD_STRING)) {
+          return <any> this.literal(original.value, this.fromTerm(original.datatype));
         }
         return <any> this.literal(original.value);
       case 'Variable':
@@ -135,7 +129,7 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
    * @return A deep copy of the given quad.
    */
   public fromQuad(original: Q): Q {
-    return <Q> this.fromTerm(original);
+    return this.fromTerm(original);
   }
 
   /**

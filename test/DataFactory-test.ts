@@ -10,7 +10,6 @@ describe('DataFactory', () => {
   });
 
   it('to have correct typings', () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const otherFactory: RDF.DataFactory = factory;
   });
 
