@@ -138,6 +138,11 @@ describe('DataFactory', () => {
 
       expect(factory.literal('a', { language: 'en-us', direction: 'ltr' })
         .equals(factory.literal('a', { language: 'en-us', direction: 'ltr' }))).toEqual(true);
+      // Simulate old data factory before base direction existed
+      const literalNullDirection = factory.literal('a', 'en-us');
+      (<any> literalNullDirection).direction = undefined;
+      expect(factory.literal('a', { language: 'en-us', direction: '' })
+        .equals(literalNullDirection)).toEqual(true);
 
       expect(factory.literal('a')
         .equals(factory.literal('a', 'en-us'))).toEqual(false);

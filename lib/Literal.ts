@@ -49,7 +49,8 @@ export class Literal implements RDF.Literal {
 
   public equals(other?: RDF.Term | null): boolean {
     return !!other && other.termType === 'Literal' && other.value === this.value &&
-      other.language === this.language && other.direction === this.direction &&
+      other.language === this.language &&
+      ((other.direction === this.direction) || (!other.direction && this.direction === '')) &&
       this.datatype.equals(other.datatype);
   }
 }
