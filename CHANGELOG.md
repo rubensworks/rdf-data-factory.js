@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v2.0.2"></a>
+## [v2.0.2](https://github.com/rubensworks/rdf-data-factory.js/compare/v2.0.1...v2.0.2) - 2025-01-09
+
+### Fixed
+* [Fix literal with empty direction not equaling undefined direction](https://github.com/rubensworks/rdf-data-factory.js/commit/b01040d2d61f3e1abd2e0617685064e2885809f6)
+
 <a name="v2.0.1"></a>
 ## [v2.0.1](https://github.com/rubensworks/rdf-data-factory.js/compare/v2.0.0...v2.0.1) - 2025-01-08
 
