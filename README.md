@@ -16,7 +16,7 @@ Concretely, it provides an implementation of the following interfaces:
 * [`Variable`](http://rdf.js.org/data-model-spec/#variable-interface): A term that represents a variable.
 * [`DefaultGraph`](http://rdf.js.org/data-model-spec/#defaultgraph-interface): A singleton term instance that represents the default graph.
 
-If using TypeScript, it is recommended to use this in conjunction with [`@types/rdf-js`](https://www.npmjs.com/package/@types/rdf-js).
+If using TypeScript, it is recommended to use this in conjunction with [`@rdfjs/types`](https://www.npmjs.com/package/@rdfjs/types).
 
 ## Installation
 
@@ -35,7 +35,7 @@ This package also works out-of-the-box in browsers via tools such as [webpack](h
 It is recommended to always create terms via a `DataFactory` instance:
 ```typescript
 import { DataFactory } from 'rdf-data-factory';
-import * as RDF from 'rdf-js';
+import * as RDF from '@rdfjs/types';
 
 const factory: RDF.DataFactory = new DataFactory();
 ```
