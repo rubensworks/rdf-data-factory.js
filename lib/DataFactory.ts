@@ -11,13 +11,13 @@ let dataFactoryCounter = 0;
 /**
  * A factory for instantiating RDF terms and quads.
  */
-export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataFactory<Q> {
+export class DataFactory<TQ extends RDF.BaseQuad = RDF.Quad> implements RDF.DataFactory<TQ> {
   private readonly blankNodePrefix: string;
   private blankNodeCounter = 0;
 
   public constructor(options?: IDataFactoryOptions) {
-    options = options || {};
-    this.blankNodePrefix = options.blankNodePrefix || `df_${dataFactoryCounter++}_`;
+    options = options ?? {};
+    this.blankNodePrefix = options.blankNodePrefix ?? `df_${dataFactoryCounter++}_`;
   }
 
   /**
@@ -25,7 +25,7 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
    * @return A new instance of NamedNode.
    * @see NamedNode
    */
-  public namedNode<Iri extends string = string>(value: Iri): NamedNode<Iri> {
+  public namedNode<TIri extends string = string>(value: TIri): NamedNode<TIri> {
     return new NamedNode(value);
   }
 
@@ -37,7 +37,7 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
    * @see BlankNode
    */
   public blankNode(value?: string): BlankNode {
-    return new BlankNode(value || `${this.blankNodePrefix}${this.blankNodeCounter++}`);
+    return new BlankNode(value ?? `${this.blankNodePrefix}${this.blankNodeCounter++}`);
   }
 
   /**
@@ -83,12 +83,12 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
    * @see Quad
    */
   public quad(
-    subject: Q['subject'],
-    predicate: Q['predicate'],
-    object: Q['object'],
-    graph?: Q['graph'],
-  ): Q & Quad {
-    return <Q> new Quad(subject, predicate, object, graph || this.defaultGraph());
+    subject: TQ['subject'],
+    predicate: TQ['predicate'],
+    object: TQ['object'],
+    graph?: TQ['graph'],
+  ): TQ & Quad {
+    return <TQ> new Quad(subject, predicate, object, graph ?? this.defaultGraph());
   }
 
   /**
@@ -101,27 +101,35 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
     //  https://github.com/microsoft/TypeScript/issues/26933
     switch (original.termType) {
       case 'NamedNode':
+        // eslint-disable-next-line ts/no-unsafe-return
         return <any> this.namedNode(original.value);
       case 'BlankNode':
+        // eslint-disable-next-line ts/no-unsafe-return
         return <any> this.blankNode(original.value);
       case 'Literal':
         if (original.language) {
+          // eslint-disable-next-line ts/no-unsafe-return
           return <any> this.literal(original.value, original.language);
         }
         if (!original.datatype.equals(Literal.XSD_STRING)) {
+          // eslint-disable-next-line ts/no-unsafe-return
           return <any> this.literal(original.value, this.fromTerm(original.datatype));
         }
+        // eslint-disable-next-line ts/no-unsafe-return
         return <any> this.literal(original.value);
       case 'Variable':
+        // eslint-disable-next-line ts/no-unsafe-return
         return <any> this.variable(original.value);
       case 'DefaultGraph':
+        // eslint-disable-next-line ts/no-unsafe-return
         return <any> this.defaultGraph();
       case 'Quad':
+        // eslint-disable-next-line ts/no-unsafe-return
         return <any> this.quad(
-          <Q['subject']> this.fromTerm((<Q> <unknown> original).subject),
-          <Q['predicate']> this.fromTerm((<Q> <unknown> original).predicate),
-          <Q['object']> this.fromTerm((<Q> <unknown> original).object),
-          <Q['graph']> this.fromTerm((<Q> <unknown> original).graph),
+          <TQ['subject']> this.fromTerm((<TQ> <unknown> original).subject),
+          <TQ['predicate']> this.fromTerm((<TQ> <unknown> original).predicate),
+          <TQ['object']> this.fromTerm((<TQ> <unknown> original).object),
+          <TQ['graph']> this.fromTerm((<TQ> <unknown> original).graph),
         );
     }
   }
@@ -131,7 +139,7 @@ export class DataFactory<Q extends RDF.BaseQuad = RDF.Quad> implements RDF.DataF
    * @param original An RDF quad.
    * @return A deep copy of the given quad.
    */
-  public fromQuad(original: Q): Q {
+  public fromQuad(original: TQ): TQ {
     return this.fromTerm(original);
   }
 

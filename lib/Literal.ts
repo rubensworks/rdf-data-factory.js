@@ -13,14 +13,17 @@ export class Literal implements RDF.Literal {
   public readonly datatype: RDF.NamedNode;
   public readonly direction: 'ltr' | 'rtl' | '';
 
+  // eslint-disable-next-line ts/naming-convention
   public static readonly RDF_LANGUAGE_STRING: RDF.NamedNode =
-  new NamedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#langString');
+    new NamedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#langString');
 
+  // eslint-disable-next-line ts/naming-convention
   public static readonly RDF_DIRECTIONAL_LANGUAGE_STRING: RDF.NamedNode =
-  new NamedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#dirLangString');
+    new NamedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#dirLangString');
 
+  // eslint-disable-next-line ts/naming-convention
   public static readonly XSD_STRING: RDF.NamedNode =
-  new NamedNode('http://www.w3.org/2001/XMLSchema#string');
+    new NamedNode('http://www.w3.org/2001/XMLSchema#string');
 
   public constructor(value: string, languageOrDatatype?: string | RDF.NamedNode | RDF.DirectionalLanguage) {
     this.value = value;
@@ -38,7 +41,7 @@ export class Literal implements RDF.Literal {
         this.datatype = languageOrDatatype.direction ?
           Literal.RDF_DIRECTIONAL_LANGUAGE_STRING :
           Literal.RDF_LANGUAGE_STRING;
-        this.direction = languageOrDatatype.direction || '';
+        this.direction = languageOrDatatype.direction ?? '';
       }
     } else {
       this.language = '';

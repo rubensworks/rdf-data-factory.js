@@ -3,11 +3,11 @@ import type * as RDF from '@rdfjs/types';
 /**
  * A term that contains an IRI.
  */
-export class NamedNode<Iri extends string = string> implements RDF.NamedNode<Iri> {
+export class NamedNode<TIri extends string = string> implements RDF.NamedNode<TIri> {
   public readonly termType = 'NamedNode';
-  public readonly value: Iri;
+  public readonly value: TIri;
 
-  public constructor(value: Iri) {
+  public constructor(value: TIri) {
     this.value = value;
   }
 
