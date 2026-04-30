@@ -58,7 +58,7 @@
     "jest": "^30.0.0",
     "jest-rdf": "^2.0.0",
     "manual-git-changelog": "^1.0.0",
-    "pre-commit": "^1.2.2",
+    "pre-commit": "^2.0.0",
     "ts-jest": "^29.0.0",
     "typescript": "^6.0.0"
   },
