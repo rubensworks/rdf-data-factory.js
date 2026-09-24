@@ -113,6 +113,22 @@ describe('DataFactory', () => {
       expect(literal.direction).toBe('rtl');
     });
 
+    it('should lowercase the language of a language tagged literal', () => {
+      const literal: RDF.Literal = factory.literal('abc', 'EN-us');
+      expect(literal.language).toBe('en-us');
+    });
+
+    it('should lowercase the language of a language tagged literal in extended form', () => {
+      const literal: RDF.Literal = factory.literal('abc', { language: 'EN-us' });
+      expect(literal.language).toBe('en-us');
+    });
+
+    it('should lowercase the language of a language tagged literal with direction', () => {
+      const literal: RDF.Literal = factory.literal('abc', { language: 'EN-us', direction: 'ltr' });
+      expect(literal.language).toBe('en-us');
+      expect(literal.direction).toBe('ltr');
+    });
+
     it('should produce a valid datatyped literal', () => {
       const literal: RDF.Literal = factory.literal('abc', factory.namedNode('ex:dt'));
       expect(literal.termType).toBe('Literal');
@@ -135,6 +151,8 @@ describe('DataFactory', () => {
         .equals(factory.literal('a', factory.namedNode('ex:dt')))).toBe(true);
       expect(factory.literal('a', { language: 'en-us' })
         .equals(factory.literal('a', 'en-us'))).toBe(true);
+      expect(factory.literal('a', 'EN-us')
+        .equals(factory.literal('a', 'en-US'))).toBe(true);
 
       expect(factory.literal('a', { language: 'en-us', direction: 'ltr' })
         .equals(factory.literal('a', { language: 'en-us', direction: 'ltr' }))).toBe(true);

@@ -28,7 +28,7 @@ export class Literal implements RDF.Literal {
   public constructor(value: string, languageOrDatatype?: string | RDF.NamedNode | RDF.DirectionalLanguage) {
     this.value = value;
     if (typeof languageOrDatatype === 'string') {
-      this.language = languageOrDatatype;
+      this.language = languageOrDatatype.toLowerCase();
       this.datatype = Literal.RDF_LANGUAGE_STRING;
       this.direction = '';
     } else if (languageOrDatatype) {
@@ -37,7 +37,7 @@ export class Literal implements RDF.Literal {
         this.datatype = languageOrDatatype;
         this.direction = '';
       } else {
-        this.language = languageOrDatatype.language;
+        this.language = languageOrDatatype.language.toLowerCase();
         this.datatype = languageOrDatatype.direction ?
           Literal.RDF_DIRECTIONAL_LANGUAGE_STRING :
           Literal.RDF_LANGUAGE_STRING;
