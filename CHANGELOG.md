@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+<a name="v2.1.0"></a>
+## [v2.1.0](https://github.com/rubensworks/rdf-data-factory.js/compare/v2.0.2...v2.1.0) - 2026-09-24
+
+### Changed
+* [Lowercase language tags of literals (#34)](https://github.com/rubensworks/rdf-data-factory.js/commit/5c7c3204d4e2462f4394f867bab1213750cbb147)
+
 <a name="v2.0.2"></a>
 ## [v2.0.2](https://github.com/rubensworks/rdf-data-factory.js/compare/v2.0.1...v2.0.2) - 2025-01-09
 
